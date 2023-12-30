@@ -7,5 +7,8 @@ export default ($axios) => {
     getDrinksByCategory: async (params) => {
       return await $axios.$get(`${urlBase}/filter.php?c=${params}`);
     },
+    getDrinkDetails: async (params) => {
+      return await $axios.$get(`${urlBase}/lookup.php?i=${params}`);
+    },
   };
 };

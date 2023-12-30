@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&family=Titillium+Web:wght@400;600&display=swap");
+
+body {
+  background: #f4f6fa;
+  font-family: "rubik", sans-serif;
+}
+
+a,
+p,
+li,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "rubik", sans-serif;
+}
+
+button {
+  font-family: "rubik", sans-serif;
+}

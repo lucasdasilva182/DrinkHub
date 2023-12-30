@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Categoria />
+    <Categories />
   </div>
 </template>
 

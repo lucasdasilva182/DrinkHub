@@ -9,7 +9,14 @@ module.exports = {
         "2xl": "1200px",
       },
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        "custom-shadow": "0 16px 40px 0 rgba(143, 160, 193, .14)",
+      },
+      fontFamily: {
+        rubik: ["Rubik", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
