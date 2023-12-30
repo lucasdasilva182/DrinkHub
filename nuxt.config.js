@@ -1,3 +1,5 @@
+import path from "path";
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -47,7 +49,7 @@ export default {
   build: {
     extend(config, { isDev, isClient }) {
       if (!isDev) {
-        config.output.path = "dist";
+        config.output.path = path.resolve(__dirname, "dist");
       }
     },
   },
