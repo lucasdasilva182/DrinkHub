@@ -44,5 +44,11 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extend(config, { isDev, isClient }) {
+      if (!isDev) {
+        config.output.path = "dist";
+      }
+    },
+  },
 };
