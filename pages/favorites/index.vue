@@ -42,12 +42,12 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: "",
   data() {
     return {
-      favorites: [] as Array<any>,
+      favorites: [],
     };
   },
   mounted() {
