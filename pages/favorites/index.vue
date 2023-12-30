@@ -57,7 +57,8 @@ export default {
     };
   },
   mounted() {
-    this.favorites = JSON.parse(window.localStorage.getItem("favorites")) || [];
+    const favoritesData = window.localStorage.getItem("favorites");
+    this.favorites = favoritesData ? JSON.parse(favoritesData) : [];
   },
 };
 </script>
