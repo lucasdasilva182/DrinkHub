@@ -43,17 +43,11 @@
 </template>
 
 <script lang="ts">
-interface FavoriteDrink {
-  idDrink: string;
-  strDrink: string;
-  strDrinkThumb: string;
-}
-
 export default {
   name: "",
   data() {
     return {
-      favorites: [] as FavoriteDrink[],
+      favorites: [] as Array<any>,
     };
   },
   mounted() {
