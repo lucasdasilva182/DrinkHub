@@ -24,7 +24,11 @@
               @click="(showSearchResult = false), (searchDrink = '')"
               class="flex justify-center items-center cursor-pointer"
             >
-              <img class="max-w-[30px] w-full" src="~/assets/img/back.svg" />
+              <img
+                class="max-w-[30px] w-full"
+                src="~/assets/img/back.svg"
+                alt="Back"
+              />
             </a>
             <div>
               <h1
@@ -55,6 +59,7 @@
             @click="fetchDrinkByName(searchDrink)"
             class="max-w-[25px] w-full absolute right-2 top-2 cursor-pointer"
             src="~/assets/img/search.svg"
+            alt="Search"
           />
         </div>
       </div>
@@ -75,7 +80,8 @@
             >
               <img
                 class="max-w-[150px] rounded-lg shadow-custom-shadow"
-                :src="`${drink.strDrinkThumb}`"
+                :src="drink.strDrinkThumb"
+                :alt="drink.strDrinkThumb"
               />
               <h2
                 class="font-rubik font-medium text-yellow-500 uppercase font-bold text-xl text-center max-w-[15ch] text-nowrap overflow-hidden text-ellipsis"
@@ -129,6 +135,7 @@
           >
             <img
               src="~/assets/img/glass.svg"
+              alt="Broken glass"
               class="max-w-[200px] w-full grayscale"
             />
             <h2 class="font-medium text-2xl text-black font-bold capitalize">
@@ -159,6 +166,7 @@
                       product.strCategory
                     )}.svg`)
                   "
+                  :alt="product.strCategory"
                 />
                 <h2
                   class="font-rubik font-medium text-start text-yellow-500 font-bold text-xl"
@@ -183,7 +191,8 @@
           >
             <img
               class="max-w-[250px] rounded-lg shadow-custom-shadow"
-              :src="`${drink.strDrinkThumb}`"
+              :src="drink.strDrinkThumb"
+              :alt="drink.strDrinkThumb"
             />
             <h2
               class="font-rubik font-medium text-yellow-500 uppercase font-bold text-xl text-center text-nowrap overflow-hidden text-ellipsis"

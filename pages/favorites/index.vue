@@ -16,6 +16,7 @@
         <img
           src="~/assets/img/empty-fav.svg"
           class="max-w-[200px] w-full grayscale"
+          alt="Empty Favorite"
         />
         <h2 class="font-medium text-2xl text-black font-bold capitalize">
           You don't have any favorite drinks yet.
@@ -34,7 +35,8 @@
       >
         <img
           class="max-w-[150px] rounded-lg shadow-custom-shadow"
-          :src="`${product.strDrinkThumb}`"
+          :src="product.strDrinkThumb"
+          :alt="product.strDrinkThumb"
         />
         <h2
           class="font-rubik font-medium text-yellow-500 uppercase font-bold text-xl text-center max-w-[15ch] text-nowrap overflow-hidden text-ellipsis"
@@ -95,7 +97,8 @@
         >
           <img
             class="max-w-[250px] rounded-lg shadow-custom-shadow"
-            :src="`${drink.strDrinkThumb}`"
+            :src="drink.strDrinkThumb"
+            :alt="drink.strDrinkThumb"
           />
           <h2
             class="font-rubik font-medium text-yellow-500 uppercase font-bold text-xl text-center text-nowrap overflow-hidden text-ellipsis"

@@ -4,7 +4,11 @@
       class="sticky top-[93px] z-30 bg-yellow-500 p-4 mb-5 shadow rounded-lg flex justify-start items-center gap-5"
     >
       <NuxtLink to="/" class="flex justify-center items-center">
-        <img class="max-w-[30px] w-full" src="~/assets/img/back.svg" />
+        <img
+          class="max-w-[30px] w-full"
+          src="~/assets/img/back.svg"
+          alt="Back"
+        />
       </NuxtLink>
       <div>
         <h1
@@ -26,7 +30,8 @@
       >
         <img
           class="max-w-[150px] rounded-lg shadow-custom-shadow"
-          :src="`${drink.strDrinkThumb}`"
+          :src="drink.strDrinkThumb"
+          :alt="drink.strDrinkThumb"
           loading="lazy"
         />
         <h2
@@ -88,7 +93,8 @@
         >
           <img
             class="max-w-[250px] rounded-lg shadow-custom-shadow"
-            :src="`${drink.strDrinkThumb}`"
+            :src="drink.strDrinkThumb"
+            :alt="drink.strDrinkThumb"
           />
           <h2
             class="font-rubik font-medium text-yellow-500 uppercase font-bold text-xl text-center text-nowrap overflow-hidden text-ellipsis"
