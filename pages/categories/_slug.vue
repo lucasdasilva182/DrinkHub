@@ -18,18 +18,16 @@
 
     <div v-if="$fetchState.pending"><Loading /></div>
 
-    <div
-      v-else
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
-    >
+    <div v-else class="flex flex-wrap gap-3 justify-center items-center">
       <div
         v-for="drink in drinks"
         :key="drink.idDrink"
-        class="relative bg-white shadow-custom-shadow rounded-lg p-5 flex flex-col items-center justify-center gap-3"
+        class="relative bg-white shadow-custom-shadow rounded-lg p-5 flex flex-col items-center justify-center gap-3 w-[283px] h-[283px]"
       >
         <img
           class="max-w-[150px] rounded-lg shadow-custom-shadow"
           :src="`${drink.strDrinkThumb}`"
+          loading="lazy"
         />
         <h2
           class="font-rubik font-medium text-yellow-500 uppercase font-bold text-xl text-center max-w-[15ch] text-nowrap overflow-hidden text-ellipsis"
@@ -37,7 +35,7 @@
           {{ drink.strDrink }}
         </h2>
         <button
-          @click="customFunction(drink.idDrink), (showModal = true)"
+          @click="fetchDrinkDetails(drink.idDrink), (showModal = true)"
           class="h-10 px-4 py-2 rounded-lg border-yellow-500 bg-yellow-500 hover:bg-yellow-600 hover:border-yellow-600 text-black font-bold"
         >
           Details +
@@ -47,11 +45,7 @@
           class="cursor-pointer absolute top-5 right-5"
         >
           <svg
-            v-if="
-              !$store.state.favorites.some(
-                (favDrink) => favDrink.idDrink === drink.idDrink
-              )
-            "
+            v-if="shouldShowDrink(drink)"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -84,7 +78,7 @@
 
     <!-- Modal -->
     <Modal v-if="showModal" @close-modal="showModal = false">
-      <div v-if="loadingModalContent"><Loading /></div>
+      <Loading v-if="loadingModalContent" />
 
       <div v-else class="flex flex-col justify-center items-center">
         <div
@@ -172,7 +166,12 @@ export default Vue.extend({
     toggleFavorite1(idDrink: object) {
       this.$store.dispatch("toggleFavorite", idDrink);
     },
-    async customFunction(idDrink: string) {
+    shouldShowDrink(drink: Drink) {
+      return !this.$store.state.favorites.some(
+        (favDrink: Drink) => favDrink.idDrink === drink.idDrink
+      );
+    },
+    async fetchDrinkDetails(idDrink: string) {
       this.loadingModalContent = true;
       this.drinkDetailsIngredients = [];
       try {

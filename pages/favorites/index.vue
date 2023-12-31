@@ -1,32 +1,36 @@
 <template>
   <div>
-    <div class="sticky top-[93px] bg-yellow-500 p-4 mb-5 shadow rounded-lg">
-      <h1
-        class="font-rubik font-medium text-4xl text-black font-bold capitalize"
-      >
+    <div
+      class="sticky top-[93px] z-30 bg-yellow-500 p-4 mb-5 shadow rounded-lg"
+    >
+      <h1 class="font-medium text-4xl text-black font-bold capitalize">
         Favorites
       </h1>
       <p>See the details of your favorite drinks:</p>
     </div>
 
     <div v-if="favorites.length === 0" class="flex justify-center items-center">
-      <div class="text-center">
-        <!-- <img src="~/assets/img/empty.svg" class="max-w-[300px] w-full" /> -->
+      <div
+        class="text-center mt-8 flex flex-col justify-center items-center gap-5"
+      >
+        <img
+          src="~/assets/img/empty-fav.svg"
+          class="max-w-[200px] w-full grayscale"
+        />
+        <h2 class="font-medium text-2xl text-black font-bold capitalize">
+          You don't have any favorite drinks yet.
+        </h2>
         <p class="text-gray-500">
-          You don't have any favorite drinks yet. To add one, simply click on
-          the heart icon on a drink's card.
+          To add one, simply click on the heart icon on a drink's card.
         </p>
       </div>
     </div>
 
-    <div
-      v-else
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3"
-    >
+    <div v-else class="flex flex-wrap gap-3 justify-center items-center">
       <div
         v-for="product in favorites"
         :key="product.idDrink"
-        class="relative bg-white shadow-custom-shadow rounded-lg p-5 flex flex-col items-center justify-center gap-3"
+        class="relative bg-white shadow-custom-shadow rounded-lg p-5 flex flex-col items-center justify-center gap-3 w-[283px] h-[283px]"
       >
         <img
           class="max-w-[150px] rounded-lg shadow-custom-shadow"
@@ -48,11 +52,7 @@
           class="cursor-pointer absolute top-5 right-5"
         >
           <svg
-            v-if="
-              !$store.state.favorites.some(
-                (favDrink) => favDrink.idDrink === product.idDrink
-              )
-            "
+            v-if="shouldShowDrink(product)"
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -129,13 +129,14 @@ interface Drink {
   idDrink: string;
   strDrink: string;
   strDrinkThumb: string;
+  strInstructions: string;
 }
 
 export default Vue.extend({
   name: "",
   data() {
     return {
-      favorites: [],
+      favorites: [] as Drink[], // Adicionado tipo para favorites
       drinksDetails: [] as Drink[],
       showModal: false,
       loadingModalContent: true,
@@ -147,7 +148,7 @@ export default Vue.extend({
   },
 
   watch: {
-    showModal(e) {
+    showModal(e: boolean) {
       if (e) {
         document.body.style.overflow = "hidden";
       } else {
@@ -158,15 +159,19 @@ export default Vue.extend({
 
   methods: {
     getFavLocal() {
-      const favoritesData = window.localStorage.getItem("favorites");
-      this.favorites = favoritesData ? JSON.parse(favoritesData) : [];
+      const favoritesData = window.localStorage.getItem("favorites") || "[]";
+      this.favorites = JSON.parse(favoritesData) as Drink[];
     },
-    toggleFavorite1(idDrink: object) {
+    toggleFavorite1(drink: Drink) {
       this.loadingModalContent = true;
-      this.$store.dispatch("toggleFavorite", idDrink);
+      this.$store.dispatch("toggleFavorite", drink);
       this.getFavLocal();
-
       this.loadingModalContent = false;
+    },
+    shouldShowDrink(drink: Drink) {
+      return !this.$store.state.favorites.some(
+        (favDrink: Drink) => favDrink.idDrink === drink.idDrink
+      );
     },
     async customFunction(idDrink: string) {
       this.loadingModalContent = true;
@@ -196,5 +201,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style></style>

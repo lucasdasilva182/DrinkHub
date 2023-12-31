@@ -5,6 +5,16 @@ export default {
     fallback: true,
   },
 
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: "custom-error",
+        path: "*",
+        component: resolve(__dirname, "layouts/error.vue"),
+      });
+    },
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "DrinkHub",
@@ -14,7 +24,12 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "DrinkHub is where you can view ingredients and recipes for your favorite drinks.",
+      },
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
