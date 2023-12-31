@@ -1,69 +1,59 @@
 # DrinkHub
 
-## Build Setup
+Bem-vindo ao DrinkHub, seu destino definitivo para explorar uma ampla variedade de bebidas! Este projeto front-end permite que os usuários descubram ingredientes e métodos de preparo para diversas bebidas, todas obtidas da API do The Cocktail DB. Para garantir consistência, todo o projeto é desenvolvido em inglês.
+
+<p align="center">
+  <img alt="Waiter App" src=".github/drinkhub.png" width="100%">
+</p>
+
+## Desenvolvimento e Recursos
+
+A aplicação é desenvolvida usando **Nuxt** com **TypeScript**, e o **TailwindCSS** é escolhido para a estilização, simplificando o processo de design. As principais funcionalidades da aplicação incluem:
+
+- **Explorar Bebidas por Categorias:** Descubra bebidas com base em diferentes categorias.
+- **Informações Detalhadas da Bebida:** Obtenha informações detalhadas para cada bebida, incluindo ingredientes e métodos de preparo.
+- **Salvar Bebidas como Favoritas:** Utilize o LocalStorage para salvar bebidas como favoritas para acesso rápido.
+- **Pesquisar por Nome da Bebida:** Procure facilmente por bebidas pelo nome.
+
+Além dessas funcionalidades, a aplicação trata possíveis erros da API de maneira elegante, gerencia rotas inexistentes e garante um design responsivo para uma experiência de usuário perfeita.
+
+## Instalação
+
+Para começar, certifique-se de ter o Node e o NPM instalados para baixar as dependências necessárias. Siga estes passos:
 
 ```bash
-# install dependencies
+# Instalar dependências
 $ npm install
 
-# serve with hot reload at localhost:3000
+# Servir com recarga rápida em localhost:3000
 $ npm run dev
 
-# build for production and launch server
+# Compilar para produção e iniciar o servidor
 $ npm run build
 $ npm run start
 
-# generate static project
+# Gerar um projeto estático
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+Sinta-se à vontade para explorar, contribuir e aprimorar a experiência do DrinkHub!
 
-## Special Directories
+## Contribuição
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+Se você deseja contribuir para o DrinkHub, siga estas etapas:
 
-### `assets`
+1. Faça um fork do repositório.
+2. Crie um novo branch para sua funcionalidade ou correção de bug.
+3. Faça suas alterações e as comite com mensagens claras e concisas.
+4. Faça push das suas alterações para o seu fork.
+5. Abra um pull request, detalhando as alterações que você fez.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+Brinde à descoberta e aproveite suas bebidas favoritas com o DrinkHub! 🍹🥂
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+## :memo: Licença
 
-### `components`
+Esse projeto está sob a licença MIT.
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+---
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
-# DrinkHub
+Feito com ♥ by [Lucas Silva](https://github.com/lucasilva182) :wave:
