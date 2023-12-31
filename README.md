@@ -6,7 +6,7 @@ Bem-vindo ao DrinkHub, seu destino definitivo para explorar uma ampla variedade 
   <img alt="Waiter App" src=".github/drinkhub.png" width="100%">
 </p>
 
-## Desenvolvimento e Recursos
+## 🚀 Desenvolvimento e Recursos
 
 A aplicação é desenvolvida usando **Nuxt** com **TypeScript**, e o **TailwindCSS** é escolhido para a estilização, simplificando o processo de design. As principais funcionalidades da aplicação incluem:
 
@@ -17,7 +17,7 @@ A aplicação é desenvolvida usando **Nuxt** com **TypeScript**, e o **Tailwind
 
 Além dessas funcionalidades, a aplicação trata possíveis erros da API de maneira elegante, gerencia rotas inexistentes e garante um design responsivo para uma experiência de usuário perfeita.
 
-## Instalação
+## 💻 Instalação
 
 Para começar, certifique-se de ter o Node e o NPM instalados para baixar as dependências necessárias. Siga estes passos:
 
@@ -38,7 +38,7 @@ $ npm run generate
 
 Sinta-se à vontade para explorar, contribuir e aprimorar a experiência do DrinkHub!
 
-## Contribuição
+## 🛠️ Contribuição
 
 Se você deseja contribuir para o DrinkHub, siga estas etapas:
 
