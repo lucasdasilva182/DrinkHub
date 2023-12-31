@@ -9,27 +9,37 @@
       <p>Choose a category and see the details of our drinks:</p>
     </div>
 
-    <div v-if="$fetchState.pending">Loading...</div>
+    <div v-if="$fetchState.pending"><Loading /></div>
 
     <div v-else class="flex justify-center items-center flex-wrap gap-3">
-      <div
-        v-for="product in products"
-        :key="product.strCategory"
-        class="border shadow rounded-lg p-5 flex items-center justify-center max-w-[250px] w-full"
-      >
+      <template v-for="product in products">
         <NuxtLink
           :to="`/categories/${product.strCategory
             .replace(/[ ]+/g, '_')
             .replace(/[ /]+/g, '+')
             .toLowerCase()}`"
+          :key="product.strCategory"
         >
-          <h2
-            class="font-rubik font-medium text-start text-yellow-500 u ppercase font-bold text-xl"
+          <div
+            class="bg-white shadow-custom-shadow rounded-lg p-5 flex items-center justify-center gap-4 w-[350px] w-full"
           >
-            {{ product.strCategory }}
-          </h2>
+            <img
+              class="max-w-[70px] w-full rounded-lg"
+              :src="
+                require(`~/assets/img/${product.strCategory
+                  .replace(/[ ]+/g, '')
+                  .replace(/[ /]+/g, '')
+                  .toLowerCase()}.svg`)
+              "
+            />
+            <h2
+              class="font-rubik font-medium text-start text-yellow-500 font-bold text-xl"
+            >
+              {{ product.strCategory }}
+            </h2>
+          </div>
         </NuxtLink>
-      </div>
+      </template>
     </div>
   </div>
 </template>

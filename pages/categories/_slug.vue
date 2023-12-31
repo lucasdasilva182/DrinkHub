@@ -1,17 +1,22 @@
 <template>
   <div>
     <div
-      class="sticky top-[93px] z-30 bg-yellow-500 p-4 mb-5 shadow rounded-lg"
+      class="sticky top-[93px] z-30 bg-yellow-500 p-4 mb-5 shadow rounded-lg flex justify-start items-center gap-5"
     >
-      <h1
-        class="font-rubik font-medium text-4xl text-black font-bold capitalize"
-      >
-        {{ $route.params.slug.replace(/[+\/\_]+/g, " ") }}
-      </h1>
-      <p>Delicious options for you:</p>
+      <NuxtLink to="/" class="flex justify-center items-center">
+        <img class="max-w-[30px] w-full" src="~/assets/img/back.svg" />
+      </NuxtLink>
+      <div>
+        <h1
+          class="font-rubik font-medium text-4xl text-black font-bold capitalize"
+        >
+          {{ $route.params.slug.replace(/[+\/\_]+/g, " ") }}
+        </h1>
+        <p>Delicious options for you:</p>
+      </div>
     </div>
 
-    <div v-if="$fetchState.pending">Loading...</div>
+    <div v-if="$fetchState.pending"><Loading /></div>
 
     <div
       v-else
@@ -79,7 +84,7 @@
 
     <!-- Modal -->
     <Modal v-if="showModal" @close-modal="showModal = false">
-      <div v-if="loadingModalContent">Loading...</div>
+      <div v-if="loadingModalContent"><Loading /></div>
 
       <div v-else class="flex flex-col justify-center items-center">
         <div
@@ -101,7 +106,7 @@
             <template v-for="(ingredient, index) in drinkDetailsIngredients">
               <p
                 :key="index"
-                class="px-2 py-[0.15rem] bg-slate-200 rounded-lg text-sm font-bold"
+                class="px-2 py-[0.15rem] bg-[#f4f6fa] rounded-lg shadow-custom-shadow text-sm font-bold"
               >
                 {{ ingredient }}
               </p>
@@ -151,6 +156,16 @@ export default Vue.extend({
     } catch (error) {
       console.error(error);
     }
+  },
+
+  watch: {
+    showModal(e) {
+      if (e) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "unset";
+      }
+    },
   },
 
   methods: {
