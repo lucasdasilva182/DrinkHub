@@ -111,6 +111,23 @@
         </div>
       </div>
     </Modal>
+
+    <!-- Modal ERROR API -->
+    <Modal v-if="showErrorModal" @close-modal="showErrorModal = false">
+      <div class="flex flex-col justify-center items-center">
+        <h1 class="font-medium text-4xl text-black font-bold uppercase">
+          Server error
+        </h1>
+        <p class="text-gray-500">Please, try again later.</p>
+        <NuxtLink
+          to="/"
+          @click="showErrorModal = false"
+          class="mt-5 h-10 px-4 py-2 rounded-lg border-yellow-500 bg-yellow-500 hover:bg-yellow-600 hover:border-yellow-600 text-black font-bold"
+        >
+          Home
+        </NuxtLink>
+      </div>
+    </Modal>
   </div>
 </template>
 
@@ -131,8 +148,9 @@ export default Vue.extend({
     return {
       drinks: [] as Drink[],
       drinksDetails: [] as Drink[],
-      showModal: false,
-      loadingModalContent: true,
+      showModal: false as boolean,
+      showErrorModal: false as boolean,
+      loadingModalContent: true as boolean,
       drinkDetailsIngredients: [] as string[],
     };
   },
@@ -148,7 +166,7 @@ export default Vue.extend({
       );
       this.drinks = response.drinks;
     } catch (error) {
-      console.error(error);
+      this.showErrorModal = true;
     }
   },
 
@@ -193,7 +211,7 @@ export default Vue.extend({
 
         this.showModal = true;
       } catch (error) {
-        console.error(error);
+        this.showErrorModal = true;
       }
     },
   },
