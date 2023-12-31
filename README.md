@@ -1,4 +1,4 @@
-# DrinkHub
+# Drink Hub 🍸🥂🍻
 
 Bem-vindo ao DrinkHub! 
 Este projeto front-end permite que os usuários descubram ingredientes e métodos de preparo para diversas bebidas, todas obtidas da API do The Cocktail DB. Para garantir consistência, todo o projeto é desenvolvido em inglês.
