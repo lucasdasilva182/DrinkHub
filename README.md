@@ -1,6 +1,7 @@
 # DrinkHub
 
-Bem-vindo ao DrinkHub, seu destino definitivo para explorar uma ampla variedade de bebidas! Este projeto front-end permite que os usuários descubram ingredientes e métodos de preparo para diversas bebidas, todas obtidas da API do The Cocktail DB. Para garantir consistência, todo o projeto é desenvolvido em inglês.
+Bem-vindo ao DrinkHub! 
+Este projeto front-end permite que os usuários descubram ingredientes e métodos de preparo para diversas bebidas, todas obtidas da API do The Cocktail DB. Para garantir consistência, todo o projeto é desenvolvido em inglês.
 
 <p align="center">
   <img alt="Waiter App" src=".github/drinkhub.png" width="100%">
@@ -56,4 +57,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ♥ by [Lucas Silva](https://github.com/lucasilva182) :wave:
+Feito com ♥ by [Lucas Silva](https://github.com/lucasdasilva182) :wave:
